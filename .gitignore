@@ -71,5 +71,6 @@
 
 # Uncommend these when you put your real api key in 
 lib/api_key.dart
+api_key.dart
 ios/Runner/ApiKey.m
 android/app/src/main/AndroidManifest.xml
