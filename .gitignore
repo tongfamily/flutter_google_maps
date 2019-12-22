@@ -77,3 +77,4 @@ android/app/src/main/AndroidManifest.xml
 
 # These are files that protect firebase access
 android/app/google-services.json
+ios/Runner/GoogleService-Info.plist

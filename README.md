@@ -63,6 +63,12 @@ You need to download the new `google-services.json with a public key in it to
 this file should also be protected as it has the key to access your personal
 firebase database on your server. So you want to also make this one a .gitignore
 
+For IOS,
+https://stackoverflow.com/questions/51098042/how-to-get-bundle-id-in-flutter#51107491
+shows that you want the PRODUCT_BUNDLE_IDENTIFIER in Runner.xcodeproj/pbxproj
+which is `com.example.iceCreamStoresDemo` and this gives you a different
+`GoogleServices-Info.plist` that you need to copy down
+
 Just in case, here's a screenshot shot of my sample Firestore database:
 
 ![ice-cream-stores-demo-firestore](https://user-images.githubusercontent.com/14852938/67521629-a4f14480-f681-11e9-9f78-cb916a2fa8e1.png)
