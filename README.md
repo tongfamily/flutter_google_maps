@@ -16,6 +16,12 @@ exclude these from the repo.
 
 To actually inflate this properly, run `flutter create .` in the directory.
 
+If you've note created an API key before, you need all 11 Google Maps API keys,
+so create a google developer account and then go to
+https://cloud.google.com/maps-platform/ and it will get you started and give you
+an API Key. Make sure to place the key somewhere safe for later access. You want
+to make sure the key is restricted to the Google Maps and places api.
+
                
 ### 2 - Replicate the cloud firestore database
 
