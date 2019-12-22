@@ -9,6 +9,13 @@ You'll need to enable google maps services in a google cloud platform project an
 - "api_key.dart"
 - "ApiKey.m"
 - "AndroidManifest.xml"
+
+Make sure not to check your api key into the repo. This is a really bad thing,
+so after the initial clone, go to `.gitignore` and uncomment out the lines that
+exclude these from the repo.
+
+To actually inflate this properly, run `flutter create .` in the directory.
+
                
 ### 2 - Replicate the cloud firestore database
 

@@ -68,6 +68,8 @@
 !**/ios/**/default.pbxuser
 !**/ios/**/default.perspectivev3
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
+
+# Uncommend these when you put your real api key in 
 # lib/api_key.dart
-# ios/Runner/ApiKey.h
 # ios/Runner/ApiKey.m
+# android/app/src/main/AndroidManifest.xml
