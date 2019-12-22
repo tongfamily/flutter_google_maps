@@ -34,6 +34,35 @@ to make sure the key is restricted to the Google Maps and places api.
 
 You'll have to replicate the database and data within Firebase's Cloud Firestore. Cloud Firestore is pretty straightforward and you won't have a hard time replicating the database shown in the demo on youtube, I guess :)
 
+The way you do this is to go to Firebase and create a Firestore database with
+the name `ice_cream_stores` then each entry in the system is a document with the
+follow fields:
+
+```
+address: <Street Address>
+location: [37.7"N 32.3"W]
+name: <Formal name of the store>
+placeID: <The Google Place GUID"
+```
+
+Also note that Firestore is a little different in that to connect it, you need
+to actually add the Ios and Android application unique identifier into the
+Firebase console in the cloud. Then you will get a unique guid to put into your
+application. See https://firebase.google.com/docs/flutter/setup
+
+It will want your bundle identifier to change this
+https://stackoverflow.com/questions/51534616/how-to-change-package-name-in-flutter
+run `flutter create --org <your preferred id> .` if you are doing a new one.
+
+For this existing sample, the package id is just
+`com.example.ice_cream_stores_demo` and you can add this to your firebase
+console
+
+You need to download the new `google-services.json with a public key in it to
+`android/app` 
+this file should also be protected as it has the key to access your personal
+firebase database on your server. So you want to also make this one a .gitignore
+
 Just in case, here's a screenshot shot of my sample Firestore database:
 
 ![ice-cream-stores-demo-firestore](https://user-images.githubusercontent.com/14852938/67521629-a4f14480-f681-11e9-9f78-cb916a2fa8e1.png)
