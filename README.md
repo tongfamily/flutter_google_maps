@@ -14,6 +14,13 @@ Make sure not to check your api key into the repo. This is a really bad thing,
 so after the initial clone, go to `.gitignore` and uncomment out the lines that
 exclude these from the repo.
 
+Also note there are dummy versions which are checked in in case you lose these
+files
+
+dummy.api_key.dart
+dummy.ApiKey.m
+dummy.AndroidManifest.xml
+
 To actually inflate this properly, run `flutter create .` in the directory.
 
 If you've note created an API key before, you need all 11 Google Maps API keys,
