@@ -18,7 +18,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.pink,
         scaffoldBackgroundColor: Colors.pink[50],
       ),
-      home: const HomePage(title: 'Ice Cream Stores in SF'),
+      // home: const HomePage(title: 'Ice Cream Stores in SF'),
+      home: const HomePage(title: 'Shot Detection'),
     );
   }
 }
@@ -40,7 +41,8 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     _iceCreamStores = Firestore.instance
-        .collection('ice_cream_stores')
+        // .collection('ice_cream_stores'
+        .collection('detection')
         .orderBy('name')
         .snapshots();
   }
@@ -65,7 +67,10 @@ class _HomePageState extends State<HomePage> {
             children: <Widget>[
               StoreMap(
                 documents: snapshot.data.documents,
-                initialPosition: const LatLng(37.7786, -122.4375),
+                // San Francisco
+                // initialPosition: const LatLng(37.7786, -122.4375),
+                // Marjory Stoneman via latlong.net
+                initialPosition: const LatLng(26.304510, -80.269460),
                 mapController: _mapController,
               ),
               StoreCarousel(
