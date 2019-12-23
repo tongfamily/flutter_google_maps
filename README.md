@@ -69,6 +69,18 @@ shows that you want the PRODUCT_BUNDLE_IDENTIFIER in Runner.xcodeproj/pbxproj
 which is `com.example.iceCreamStoresDemo` and this gives you a different
 `GoogleServices-Info.plist` that you need to copy down
 
+The schema is not documents, but it is case sensitive and this seems to work:
+
+address: string
+location: geopoint
+name: string
+placeId: string
+
+Note that placeId is from Google Places and needs to globally unique. It's
+actually not used in the application as far as I can tell. So you can make up
+your own.
+
+
 Just in case, here's a screenshot shot of my sample Firestore database:
 
 ![ice-cream-stores-demo-firestore](https://user-images.githubusercontent.com/14852938/67521629-a4f14480-f681-11e9-9f78-cb916a2fa8e1.png)
