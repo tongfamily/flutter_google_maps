@@ -34,13 +34,13 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  Stream<QuerySnapshot> _iceCreamStores;
+  Stream<QuerySnapshot> _detections;
   final Completer<GoogleMapController> _mapController = Completer();
 
   @override
   void initState() {
     super.initState();
-    _iceCreamStores = Firestore.instance
+    _detections = Firestore.instance
         // .collection('ice_cream_stores'
         .collection('detection')
         .orderBy('name')
@@ -54,7 +54,7 @@ class _HomePageState extends State<HomePage> {
         title: Text(widget.title),
       ),
       body: StreamBuilder<QuerySnapshot>(
-        stream: _iceCreamStores,
+        stream: _detections,
         builder: (context, snapshot) {
           if (snapshot.hasError) {
             return Center(child: Text('Error: ${snapshot.error}'));
@@ -69,7 +69,7 @@ class _HomePageState extends State<HomePage> {
                 documents: snapshot.data.documents,
                 // San Francisco
                 // initialPosition: const LatLng(37.7786, -122.4375),
-                // Marjory Stoneman via latlong.net
+                // Marjory Stoneman Douglas High School via latlong.net
                 initialPosition: const LatLng(26.304510, -80.269460),
                 mapController: _mapController,
               ),
@@ -242,6 +242,9 @@ class StoreMap extends StatelessWidget {
       markers: documents
           .map((document) => Marker(
                 markerId: MarkerId(document['placeId']),
+                // icon: BitmapDescriptor.defaultMarkerWithHue(_pinkHue),
+                // https://pub.dev/documentation/google_maps_flutter/latest/google_maps_flutter/BitmapDescriptor-class.html
+                // use built in
                 icon: BitmapDescriptor.defaultMarkerWithHue(_pinkHue),
                 position: LatLng(
                   document['location'].latitude,
