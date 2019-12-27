@@ -41,6 +41,9 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
+
+    // to handle dates correctly as date objects are changing
+
     _detections = Firestore.instance
         // .collection('ice_cream_stores'
         .collection('detection')
@@ -228,9 +231,9 @@ class _StoreListTileState extends State<StoreListTile> {
 // List al; the types found in the database and the required color
 // TODO Doesn't handle new types properly yet
 const _locationTypeToMarketColor = {
-  "shot" : BitmapDescriptor.hueRed,
-  "building" : BitmapDescriptor.hueGreen,
-  "campus" : BitmapDescriptor.hueYellow
+  'shot' : BitmapDescriptor.hueRed,
+  'building' : BitmapDescriptor.hueViolet,
+  'campus' : BitmapDescriptor.hueGreen,
 };
 
 class StoreMap extends StatelessWidget {
@@ -241,18 +244,23 @@ class StoreMap extends StatelessWidget {
     @required this.mapController,
   }) : super(key: key);
 
+
+
   final List<DocumentSnapshot> documents;
   final LatLng initialPosition;
   final Completer<GoogleMapController> mapController;
 
+
   @override
   Widget build(BuildContext context) {
+    print('hello $_locationTypeToMarketColor');
     return GoogleMap(
       initialCameraPosition: CameraPosition(
         target: initialPosition,
         zoom: 12,
       ),
       markers: documents
+          //           .map((document) => Marker(
           .map((document) => Marker(
                 markerId: MarkerId(document['placeId']),
                 // icon: BitmapDescriptor.defaultMarkerWithHue(_pinkHue),
@@ -268,6 +276,7 @@ class StoreMap extends StatelessWidget {
                   title: document['name'],
                   snippet: document['address'],
                 ),
+              // ))
               ))
           .toSet(),
       onMapCreated: (mapController) {
