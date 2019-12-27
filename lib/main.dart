@@ -13,7 +13,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Ice Creams FTW',
+      // title: 'Ice Creams FTW',
+      title: 'Shot Detection Demo',
       theme: ThemeData(
         primarySwatch: Colors.pink,
         scaffoldBackgroundColor: Colors.pink[50],
@@ -43,7 +44,9 @@ class _HomePageState extends State<HomePage> {
     _detections = Firestore.instance
         // .collection('ice_cream_stores'
         .collection('detection')
-        .orderBy('name')
+        // .orderBy('name')
+        // https://stackoverflow.com/questions/58154176/how-to-order-data-from-firestore-in-flutter-orderby-not-ordering-correct
+        .orderBy('time', descending: true)
         .snapshots();
   }
 
@@ -218,7 +221,17 @@ class _StoreListTileState extends State<StoreListTile> {
   }
 }
 
-const _pinkHue = 350.0;
+// Do not need this constant anymore
+// Can access colors from 0-360 via
+// the structure call BitmapDescriptor.hueYellow
+// const _pinkHue = 350.0;
+// List al; the types found in the database and the required color
+// TODO Doesn't handle new types properly yet
+const _locationTypeToMarketColor = {
+  "shot" : BitmapDescriptor.hueRed,
+  "building" : BitmapDescriptor.hueGreen,
+  "campus" : BitmapDescriptor.hueYellow
+};
 
 class StoreMap extends StatelessWidget {
   const StoreMap({
@@ -244,8 +257,9 @@ class StoreMap extends StatelessWidget {
                 markerId: MarkerId(document['placeId']),
                 // icon: BitmapDescriptor.defaultMarkerWithHue(_pinkHue),
                 // https://pub.dev/documentation/google_maps_flutter/latest/google_maps_flutter/BitmapDescriptor-class.html
-                // use built in
-                icon: BitmapDescriptor.defaultMarkerWithHue(_pinkHue),
+                // use built in like this
+                // icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
+                icon: BitmapDescriptor.defaultMarkerWithHue(_locationTypeToMarketColor[document['type']]),
                 position: LatLng(
                   document['location'].latitude,
                   document['location'].longitude,

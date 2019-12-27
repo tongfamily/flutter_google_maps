@@ -176,7 +176,7 @@ SPEC CHECKSUMS:
   FirebaseFirestore: 0b2495ff27e5749fa0984c405ea58db3d070e075
   FirebaseInstanceID: e2fa4cb35ef5558c200f7f0ad8a53e212215f93e
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
-  google_maps_flutter: 924970f41ec509a201b593548db005efb2a09ee9
+  google_maps_flutter: d0dd62f5a7d39bae61057eb9f52dd778d99c7c6c
   GoogleAppMeasurement: 98b71f5e04142793729a5ef23e5b96651ff4b70f
   GoogleMaps: f79af95cb24d869457b1f961c93d3ce8b2f3b848
   GoogleUtilities: 95996bea7c7d9b8fb811b7507669a4a8762f80c7
