@@ -253,8 +253,16 @@ class StoreMap extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('hello $_locationTypeToMarketColor');
+    // print('hello $_locationTypeToMarketColor');
+    // https://pub.dev/documentation/google_maps_flutter/latest/google_maps_flutter/GoogleMap-class.html
     return GoogleMap(
+      buildingsEnabled: true,
+      indoorViewEnabled: true,
+      mapType: MapType.satellite,
+      rotateGesturesEnabled: true,
+      scrollGesturesEnabled: true,
+      trafficEnabled: true,
+      zoomGesturesEnabled: true,
       initialCameraPosition: CameraPosition(
         target: initialPosition,
         zoom: 12,
