@@ -70,6 +70,6 @@
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
 
 # Uncommend these when you put your real api key in 
-# lib/api_key.dart
-# ios/Runner/ApiKey.m
-# android/app/src/main/AndroidManifest.xml
+lib/api_key.dart
+ios/Runner/ApiKey.m
+android/app/src/main/AndroidManifest.xml
